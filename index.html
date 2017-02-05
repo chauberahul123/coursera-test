@@ -1,25 +1,8 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @chauberahul123
- Watch 0
-  Star 0
-  Fork 0 chauberahul123/coursera-test
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathcoursera-test/module3-solution/index.html
-02a925a  3 minutes ago
-@chauberahul123 chauberahul123 module3 solution
-1 contributor
-RawBlameHistory     
-93 lines (87 sloc)  3.33 KB
 <!DOCTYPE html>
-<html lang="en" ng-app="NarrowItDownApp">
+<html lang="en" ng-app="MenuApp">
 <head>
   <meta charset="UTF-8">
-  <title>Module 3</title>
+  <title>Module 4 assignment</title>
   <!--<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">-->
   <link rel="stylesheet" 
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -31,82 +14,69 @@ RawBlameHistory
       font-size: 0.8em;
       text-align: center;
     }
+    body {
+      background: #efd2e7;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="row">
       <div class="col-md-12">
-        <h1>Narrow It Down</h1>
-        <p>Module 3 Assignment</p>
+        <h1>Menu App</h1>
+        <p>Module 4 assignment</p>
       </div>
     </header>
 
-    <!-- *** Row with lists *********************************************** -->
-    <div class="row"  ng-controller="NarrowItDownController as search">
-      <div class="col-md-4">
-        <div>
-          <h2>Search menu</h2>
-          <p>
-            <input type="text" id="searchFor" ng-model="search.searchFor" class="form-control" placeholder="Enter item to search for" />
-          </p>
-          <p>
-            <button ng-click="search.search()" class="btn btn-primary pull-right">Click this button to search!</button>
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-8">
-        <!--<h2>Found menu items</h2>
-          <ul class="striped">
-            <li ng-repeat="item in search.found">
-              <button class="btn btn-danger pull-right" 
-                      ng-click="search.dontWant($index);">Don't want this one!</button>
-              <b>{{ item.name }} [{{ item.short_name }}]</b><br />
-                Content: {{ item.description }}
-            </li>
-          </ul>
-          <p>{{ search.searchResult }}</p>-->
-        <found-items 
-          title="Items found" 
-          list="search.found" 
-          result="{{ search.searchResult }}" 
-          dont-want="search.dontWant(index)"></found-items>
-      </div>
+    <!-- *** START: Row with content *********************************************** -->
+    <div class="row">
+      <!-- View should contain the columns -->
+      <ui-view></ui-view>
     </div>
+    <!-- *** END: Row with content *********************************************** -->
 
-    <div style="margin-top: 300px;">
-      
+    <div class="row" style="margin-top: 300px;">
+      <div class="col-md-12">
+        
+      </div>
     </div>
 
     <footer class="row">
       <div class="col-md-12">
-        
+       
       </div>
     </footer>
   </div>
   <!-- LOCAL framework script files -->
   <!--<script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../bower_components/angular/angular.js"></script>-->
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>-->
+
   <!-- EXTERNAL framework script files (CDN's) -->
-  <!--<script src="https://code.jquery.com/jquery-1.12.4.min.js"
-    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous"></script>-->
-  <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+
   <!-- LOCAL script file(s) with application logic -->
-  <script src="app.js"></script>
-  <script>
-    $(function() { $("input").focus(); })
-  </script>
+
+  <!-- Load bootstrapping module and routes -->
+  <script src="js/home/menuapp.module.js"></script>
+  <script src="js/routes.js"></script>
+
+  <!-- Load other modules -->
+  <script src="js/data/data.module.js"></script>
+  <script src="js/data/menudata.service.js"></script>
+
+  <!-- Load rest of files -->
+  <script src="js/categories/categories-list.controller.js"></script>
+  <script src="js/categories/items-list.controller.js"></script>
+  
+  <!-- Load components -->
+  <script src="js/components/categories.component.js"></script>
+  <script src="js/components/items.component.js"></script>
 </body>
 </html>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
